@@ -1,0 +1,12 @@
+#
+# Some packages need to be installed before
+# be able to install other packages.
+# Because some package setup depends on these
+# packages.
+# See: https://github.com/fbessho/PyPoi/issues/23
+#
+# Run this before requirements.txt
+#
+
+numpy==1.10.1
+scipy==0.16.1
