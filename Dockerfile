@@ -2,7 +2,7 @@ FROM python:2.7-slim
 
 COPY pre-requirements.txt requirements.txt /tmp/
 
-RUN apt-get update && apt-get install -y libopenblas-dev --no-install-recommends
+RUN apt-get update && apt-get install -y libopenblas-dev libjpeg-dev --no-install-recommends
 
 RUN set -x \
 	&& buildDeps=' \
@@ -18,7 +18,6 @@ RUN set -x \
 		zlib1g-dev \
 		zip \
 		unzip \
-		libjpeg-dev \
 		gfortran \
 		g++ \
 		pkg-config \
