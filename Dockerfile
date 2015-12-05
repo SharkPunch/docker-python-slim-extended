@@ -2,6 +2,8 @@ FROM python:2.7-slim
 
 COPY pre-requirements.txt requirements.txt /tmp/
 
+RUN apt-get update && apt-get install -y libopenblas-dev --no-install-recommends
+
 RUN set -x \
 	&& buildDeps=' \
 		curl \
@@ -13,18 +15,16 @@ RUN set -x \
 		libsqlite3-dev \
 		libssl-dev \
 		make \
-		xz-utils \
 		zlib1g-dev \
 		zip \
 		unzip \
-		libopenblas-dev \
 		libjpeg-dev \
 		gfortran \
 		g++ \
 		pkg-config \
 		libfreetype6-dev \
 	' \
-	&& apt-get update && apt-get install -y $buildDeps --no-install-recommends && rm -rf /var/lib/apt/lists/* \
+	&& apt-get install -y $buildDeps --no-install-recommends && rm -rf /var/lib/apt/lists/* \
 	&& mkdir -p /usr/src/python \
 	&& curl -SL "https://github.com/google/google-visualization-python/archive/master.zip" -o gviz_api.zip \
 	&& unzip -o -j -qq gviz_api.zip -d /usr/src/python/gviz_api/ \
