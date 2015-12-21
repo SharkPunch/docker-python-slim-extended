@@ -39,6 +39,6 @@ RUN set -x \
 	&& apt-get purge -y --auto-remove $buildDeps \
 	&& rm -rf /usr/src/python
 
-RUN python -m nltk.downloader -d /usr/local/share/nltk_data all
+RUN python -m nltk.downloader -d /usr/local/share/nltk_data stopwords wordnet
 
 ENTRYPOINT ["python"]
