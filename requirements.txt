@@ -4,6 +4,7 @@
 # Before running this, run pre_requirements.txt
 #
 
+addict==0.4.0
 ConfigArgParse==0.10.0
 facebook-sdk==0.4.0
 GitPython==1.0.1
